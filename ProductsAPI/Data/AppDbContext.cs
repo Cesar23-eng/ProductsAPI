@@ -1,6 +1,12 @@
-﻿namespace ProductsAPI.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using ProductsAPI.Models;
 
-public class AppDbContext
+namespace ProductsAPI.Data;
+
+public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
 {
-    
+    public DbSet<Product> Products { get; set; }
 }
+
+
+
